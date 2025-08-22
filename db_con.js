@@ -2,7 +2,7 @@ const sql = require('mssql');
 
 const config = {
   user: 'sa', // or your SQL Server username
-  password: 'OOASolutions2013', // use your password
+  password: 'OOASolutions2013', 
   server: 'server1',
   database: 'bios_db_ooasi_clone_07302025',
   options: {
