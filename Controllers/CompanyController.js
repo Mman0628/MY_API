@@ -16,7 +16,7 @@ exports.getCompanyData = async (req , res) => {
             ON A.city_id = city.CityCode  
             `);
         const getProvince = pool.request().query(`SELECT prov.prov_id, prov.prov_name from mf_province prov`)
-        const getCity = pool.request().query(`SELECT city.CityCode, city.CityDesc from mf_city city`)
+        const getCity = pool.request().query(`SELECT city.CityCode, city.CityDesc, city.city_prov from mf_city city`)
         const getBusinessunit = pool.request()
             .query(
             `SELECT A.co_id, A.busunit_id, A.busunit_name, A.busunit_alias, A.bldg_street, A.district_municipality, A.city_id, A.prov_id, 
