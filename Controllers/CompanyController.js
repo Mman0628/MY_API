@@ -15,8 +15,8 @@ exports.getCompanyData = async (req , res) => {
             LEFT JOIN mf_city city
             ON A.city_id = city.CityCode  
             `);
-        const getProvince = pool.request().query(`SELECT prov.prov_id, prov.prov_name from mf_province prov`)
-        const getCity = pool.request().query(`SELECT city.CityCode, city.CityDesc, city.city_prov from mf_city city`)
+        const getProvince = pool.request().query(`SELECT prov.prov_id, prov.prov_name, prov.status_id from mf_province prov`)
+        const getCity = pool.request().query(`SELECT city.CityCode, city.CityDesc, city.city_prov, city.status_id from mf_city city`)
         const getBusinessunit = pool.request()
             .query(
             `SELECT A.co_id, A.busunit_id, A.busunit_name, A.busunit_alias, A.bldg_street, A.district_municipality, A.city_id, A.prov_id, 
@@ -90,7 +90,7 @@ exports.insertCompany = async (req , res) => {
                 .input('zip_code', sql.NVarChar, zip_code)
                 .input('fax_no', sql.NVarChar, fax_no)
                 .input('e_mail', sql.NVarChar, e_mail)
-                .input('city_id', sql.NVarChar, city_id)
+                .input('city_id', sql.NVarChar, CityCode)
                 .input('prov_id', sql.NVarChar, prov_id)
                 .input('status_id', sql.NVarChar, status_id)
                 .query(`

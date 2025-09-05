@@ -4,6 +4,7 @@ const projectController = require('../Controllers/ProjectController')
 const companyController = require('../Controllers/CompanyController') 
 const otherFiles = require('../Controllers/OtherFilesController')
 const customerFilesController = require('../Controllers/CustomerFilesController')
+const TCTController = require('../Controllers/TCTController')
 
 module.exports = router.get('/', (req,res) => {
     res.send('THIS IS BASE'); 
@@ -14,6 +15,7 @@ module.exports =router.get('/project',projectController.getProject)
 module.exports =router.get('/company',companyController.getCompanyData)  
 module.exports =router.get('/other_files',otherFiles.getEntity) 
 module.exports =router.get('/customer_files',customerFilesController.getCustomerData) 
+module.exports =router.get('/tct_data',TCTController.TCTData) 
 
 //POST
 module.exports =router.post('/add_company',companyController.insertCompany)

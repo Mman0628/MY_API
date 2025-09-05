@@ -17,6 +17,6 @@ app.use(express.json());
 
 app.use('/myApi',routes);   
 
-app.listen(PORT, () => {
-console.log(`Server running on http://localhost:${chalk.green(PORT)}`);
+app.listen(PORT, '192.168.1.174', () => {
+console.log(`Server running on http://192.168.1.174:${chalk.green(PORT)}`);
 }); 
